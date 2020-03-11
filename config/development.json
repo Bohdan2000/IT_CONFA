@@ -1,0 +1,7 @@
+{
+  "database": {
+    "type": "mongodb",
+    "host": "localhost",
+    "database": "IT_CONFA"
+  }
+}

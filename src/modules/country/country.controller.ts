@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Body, HttpCode, Delete, Param } from '@nestjs/common';
 import { CountriesService } from './country.service';
 import { Country } from './interfaces/country.interface';
 import { CreateCountryDto } from './dto/country.dto';
@@ -14,7 +14,19 @@ export class CountriesController {
   }
 
   @Post()
+  @HttpCode(201)
   createCountry(@Body() createCountryDto: CreateCountryDto): Promise<Country> {
-    return this.countriesService.create(createCountryDto);
+    try {
+      console.log(createCountryDto);
+      return this.countriesService.create(createCountryDto);
+    } catch (err) {
+      console.log(err);
+    }
   }
+
+  @Delete(':id')
+  deleteCountry(@Param('id') id: string) {
+    return this.countriesService.delete(id);
+  }
+
 }

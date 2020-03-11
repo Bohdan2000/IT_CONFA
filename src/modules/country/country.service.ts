@@ -16,4 +16,8 @@ export class CountriesService {
   async findAll(): Promise<Country[]> {
     return this.countryModel.find().exec();
   }
+
+  async delete(id: string) {
+    return this.countryModel.findByIdAndRemove(id);
+  }
 }
