@@ -1,8 +1,11 @@
 import * as mongoose from 'mongoose';
-import { LocationDto } from './dto/cities.dto';
 
 export const CitySchema = new mongoose.Schema({
-  location:  LocationDto ,
+  location:  {
+    __type: String,
+    latitude: Number,
+    longitude: Number,
+  } ,
   cityId: Number,
   name: String,
   country: String,
