@@ -6,27 +6,26 @@ import { CreateCityDto } from './dto/cities.dto';
 
 @Controller('cities')
 export class CitiesController {
-  constructor(private readonly countriesService: CitiesService) {}
+  constructor(private readonly citiesService: CitiesService) {}
 
   @Get()
-  getAllCountries(): Promise<City[]> {
-    return this.countriesService.findAll();
+  getAllCities(): Promise<City[]> {
+    return this.citiesService.findAll();
   }
 
-  // @Post()
-  // @HttpCode(201)
-  // createCountry(@Body() createCountryDto: CreateCountryDto): Promise<Country> {
-  //   try {
-  //     console.log(createCountryDto);
-  //     return this.countriesService.create(createCountryDto);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // }
+  @Post()
+  @HttpCode(201)
+  createCity(@Body() createCityDto: CreateCityDto): Promise<City> {
+    try {
+      console.log(createCityDto);
+      return this.citiesService.create(createCityDto);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
-  // @Delete(':id')
-  // deleteCountry(@Param('id') id: string) {
-  //   return this.countriesService.delete(id);
-  // }
-
+  @Delete(':id')
+  deleteCity(@Param('id') id: string) {
+    return this.citiesService.delete(id);
+  }
 }
