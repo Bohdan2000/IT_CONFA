@@ -24,6 +24,12 @@ export class UsersController {
     }
   }
 
+  @Get(':id')
+  getById(@Param('id') id: string) {
+    return this.usersService.getUserById(id);
+  }
+
+
   @Delete(':id')
   deleteUser(@Param('id') id: string) {
     return this.usersService.delete(id);

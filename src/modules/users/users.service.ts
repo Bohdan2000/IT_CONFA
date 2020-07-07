@@ -20,4 +20,12 @@ export class UsersService {
   async delete(id: string) {
     return this.userModel.findByIdAndRemove(id);
   }
-}
+
+  async getUserById(id: string) {
+    return this.userModel.findOneById(id);
+  }
+
+  async getUserByEmail(email: string) {
+    return this.userModel.findOne({email});
+  }
+} 

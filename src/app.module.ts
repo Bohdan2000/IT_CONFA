@@ -6,11 +6,13 @@ import { DatabaseModule } from './modules/database/database.module';
 import { Back4AppModule } from './modules/back4app/back4app.module';
 import { CitiesModule } from './modules/cities/cities.module';
 import { UsersModule } from './modules/users/users.module';
+import { AuthModule } from './modules/auth/auth.module';
+
 
 
 
 @Module({
-  imports: [DatabaseModule, CountriesModule, Back4AppModule, CitiesModule, UsersModule],
+  imports: [DatabaseModule, CountriesModule, Back4AppModule, CitiesModule, UsersModule, AuthModule],
   controllers: [AppController],
   providers: [AppService],
 })
