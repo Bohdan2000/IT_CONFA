@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { CountriesController } from './country.controller';
-import { CountriesService} from './country.service';
-import { CountrySchema } from './country.schema';
+import { CountriesController } from './countries.controller';
+import { CountriesService} from './countries.service';
+import { CountrySchema } from './countries.schema';
 
 @Module({
   imports: [MongooseModule.forFeature([{ name: 'Country', schema: CountrySchema }])],
