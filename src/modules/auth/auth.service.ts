@@ -2,7 +2,7 @@ import { Injectable, HttpException } from '@nestjs/common';
 import { UsersService } from '../users/users.service';
 import { SignInDto, SignUpDto } from './dto/auth.dto';
 import * as jwt from 'jsonwebtoken';
-import * as base64 from 'base-64';
+import * as bcrypt from 'bcrypt';
 
 
 @Injectable()
@@ -15,13 +15,12 @@ export class AuthService {
     if (!user) {
       throw new HttpException('User not found by provided email', 404);
     }
-    console.log('qwdqw', base64.decode(user.password) === password, base64.decode(user.password));
-    if (base64.decode(user.password) === password) {
+    if (await bcrypt.compare(password, user.password)) {
       const token = `${jwt.sign({
         id: user.id,
         role: user.role,
         email: user.email
-      }, 'secret')}`;
+      }, 'secret', { expiresIn: '24h' })}`;
       return { "token": token };
     }
     else
@@ -29,11 +28,10 @@ export class AuthService {
   }
 
   async signUp(signUpDto: SignUpDto) {
-    const { email, password } = signUpDto;
-    signUpDto.password = base64.encode(password);
-    if (await this.usersService.getUserByEmail(email)) {
-      throw new HttpException('This email already in use', 400)
-    }
+    // const { email } = signUpDto;
+    // if (await this.usersService.getUserByEmail(email)) {
+    //   throw new HttpException('This email already in use', 400)
+    // }
     return this.usersService.create(signUpDto);
   }
 }

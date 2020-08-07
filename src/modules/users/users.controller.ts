@@ -1,7 +1,7 @@
-import { Controller, Get, Post, Body, HttpCode, Delete, Param } from '@nestjs/common';
+import { Controller, Get, Post, Body, HttpCode, Delete, Param, Put } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { User } from './interfaces/users.interface';
-import { CreateUserDto } from './dto/users.dto';
+import { CreateUserDto, UpdateUserDto } from './dto/users.dto';
 
 
 @Controller('users')
@@ -17,8 +17,18 @@ export class UsersController {
   @HttpCode(201)
   createUser(@Body() createUserDto: CreateUserDto): Promise<User> {
     try {
-      console.log(createUserDto);
+      // console.log(createUserDto);
       return this.usersService.create(createUserDto);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  @Put(':id')
+  updateUser(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto): Promise<User> {
+    try {
+      // console.log(createUserDto);
+      return this.usersService.update(updateUserDto, id);
     } catch (err) {
       console.log(err);
     }
