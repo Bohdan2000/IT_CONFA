@@ -24,6 +24,15 @@ export class CitiesController {
     }
   }
 
+  @Post(':Code')
+  saveCitiesFromAPI(@Param('Code') code: string): Promise<City[]> {
+    try {
+      return this.citiesService.saveCitiesFromAPI(code);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   @Delete(':id')
   deleteCity(@Param('id') id: string) {
     return this.citiesService.delete(id);

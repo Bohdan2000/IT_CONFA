@@ -5,7 +5,9 @@
     "host": "localhost",
     "database": "IT_CONFA"
   },
-  "back4app": {
-    "base_url": "https://parseapi.back4app.com/classes/Ukraine_City"
+  "rapidAPI": {
+    "cities": "https://countries-cities.p.rapidapi.com/location/country/UA/city/list",
+    "countries": "https://countries-cities.p.rapidapi.com/location/country/list"
+
   }
 }
