@@ -1,6 +1,6 @@
 import { Injectable, HttpService } from '@nestjs/common';
-import APP_CONFIG from '../../config/app.config';
-import { RapidAPI_AUTH_HEADERS } from '../core/constants/rapidAPI-constants';
+import APP_CONFIG from '../../../../config/app.config';
+import { RapidAPI_AUTH_HEADERS } from '../../constants/rapidAPI-constants';
 
 @Injectable()
 export class RapidAPIService {

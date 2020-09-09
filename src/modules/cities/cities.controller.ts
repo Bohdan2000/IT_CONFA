@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Body, HttpCode, Delete, Param } from '@nestjs/common';
 import { CitiesService } from './cities.service';
-import { City } from './interfaces/cities.inrface';
+import { City } from './interfaces/cities.interface';
 import { CreateCityDto } from './dto/cities.dto';
 
 
