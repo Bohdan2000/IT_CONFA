@@ -2,6 +2,7 @@ import { get } from 'config';
 
 export default {
   PORT: get('port'),
-  BACK4APP_BASE_URL: get('back4app.base_url'),
+  RAPID_API_COUNTRIES_URL: get('rapidAPI.countries'),
+  RAPID_API_CITIES_URL: get('rapidAPI.cities'),
   SECRET_KEY: 'IT_CONFA'
 };

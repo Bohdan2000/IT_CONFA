@@ -1,6 +1,5 @@
 import { Controller, Post, Body, HttpCode, Param } from '@nestjs/common';
 import { AuthService } from './auth.service';
-// import { User } from './interfaces/users.interface';
 import { SignInDto, SignUpDto } from './dto/auth.dto';
 
 
