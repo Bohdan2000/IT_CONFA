@@ -15,14 +15,19 @@ export class AuthGuard implements CanActivate {
 
   canActivate( context: ExecutionContext ): boolean | Promise<boolean> | Observable<boolean> {
     try {
+      console.log('123123123');
       const request = context.switchToHttp().getRequest();
+      console.log(request.headers);
       if (!request.headers.authorization) {
+        console.log('3323');
         throw new UnauthorizedException();
       }
-
+      console.log('1234445555');
       const { id, role, email } = jwt.verify(request.headers.authorization, APP_CONFIG.SECRET_KEY);
+
+      console.log('3555555');
       if (!id) {
-        return false;
+        return false; 
       }
       request.userData = { id, role, email };
       return true;

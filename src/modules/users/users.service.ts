@@ -40,7 +40,7 @@ export class UsersService {
     }
     updateUserDto.password = await bcrypt.hash(password, 10);
     await this.userModel.updateOne({ _id: id }, updateUserDto);
-    return await this.getUserById(id);
+    return this.getUserById(id);
   }
 
   async getUserById(_id: string) {
