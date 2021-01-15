@@ -3,7 +3,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { CitiesController } from './cities.controller';
 import { CitiesService } from './cities.service';
 import { CitySchema } from './cities.schema';
-import { RapidAPIModule } from '../core/thirdPartyAPIs/rapidAPI/rapidAPI.module';
+import { RapidAPIModule } from '../rapidAPI/rapidAPI.module';
 
 @Module({
   imports: [MongooseModule.forFeature([{ name: 'City', schema: CitySchema }]), RapidAPIModule],

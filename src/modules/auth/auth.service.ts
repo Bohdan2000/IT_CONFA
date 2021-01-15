@@ -1,9 +1,11 @@
 import { Injectable, HttpException } from '@nestjs/common';
 import { UsersService } from '../users/users.service';
 import { SignInDto, SignUpDto } from './dto/auth.dto';
-import APP_CONFIG from '../../config/app.config';
+import config from '../../config/app.config';
+
 import * as jwt from 'jsonwebtoken';
 import * as bcrypt from 'bcrypt';
+
 
 
 @Injectable()
@@ -21,7 +23,7 @@ export class AuthService {
         id: user.id,
         role: user.role,
         email: user.email
-      }, APP_CONFIG.SECRET_KEY, { expiresIn: '24h' })}`;
+      }, config.SECRET_KEY, { expiresIn: '24h' })}`;
       return { "token": token };
     }
     else

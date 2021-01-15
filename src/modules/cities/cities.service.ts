@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { City } from './interfaces/cities.interface';
 import { CreateCityDto } from './dto/cities.dto';
-import { RapidAPIService } from '../core/thirdPartyAPIs/rapidAPI/rapidAPI.service';
+import { RapidAPIService } from '../rapidAPI/rapidAPI.service';
 
 @Injectable()
 export class CitiesService {
