@@ -17,7 +17,6 @@ export class CitiesController {
   @HttpCode(201)
   createCity(@Body() createCityDto: CreateCityDto): Promise<City> {
     try {
-      console.log(createCityDto);
       return this.citiesService.create(createCityDto);
     } catch (err) {
       console.log(err);

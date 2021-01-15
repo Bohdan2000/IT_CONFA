@@ -17,7 +17,6 @@ export class UsersController {
   @HttpCode(201)
   createUser(@Body() createUserDto: CreateUserDto): Promise<User> {
     try {
-      // console.log(createUserDto);
       return this.usersService.create(createUserDto);
     } catch (err) {
       console.log(err);
@@ -27,7 +26,6 @@ export class UsersController {
   @Put(':id')
   updateUser(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto): Promise<User> {
     try {
-      // console.log(createUserDto);
       return this.usersService.update(updateUserDto, id);
     } catch (err) {
       console.log(err);
