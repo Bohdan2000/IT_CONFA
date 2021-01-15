@@ -1,0 +1,13 @@
+{
+  "port": 3000,
+  "database": {
+    "type": "mongodb",
+    "host": "localhost",
+    "database": "IT_CONFA"
+  },
+  "rapidAPI": {
+    "cities": "https://countries-cities.p.rapidapi.com/location/country/UA/city/list",
+    "countries": "https://countries-cities.p.rapidapi.com/location/country/list"
+
+  }
+}
